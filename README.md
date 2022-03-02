@@ -13,6 +13,7 @@ Permit any confirmation/security messages.
 Then:
 
 `cd Spikeball`⏎
+
 `python3 spikeball_groups.py`⏎
 
 If you have any errors, open an issue, email me, or text if you have my number.
