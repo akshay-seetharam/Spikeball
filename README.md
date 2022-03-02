@@ -8,7 +8,8 @@ Run the following code:
 
 `git clone https://github.com/akshay-seetharam/Spikeball`⏎
 
-`python3 -m pip install -r requirements.txt`\342\217\216
+`python3 -m pip install -r requirements.txt`⏎
+
 Permit any confirmation/security messages.
 
 Then:
