@@ -92,7 +92,7 @@ if __name__ == '__main__':
         teams[i] = teams[i][:-1]
         i += 1
 
-    print(num_teams, teams)
+    # print(num_teams, teams)
     with open('timeslots.txt', 'r') as f:
         timeslots = f.readlines()
     i = 0
@@ -100,7 +100,7 @@ if __name__ == '__main__':
         timeslots[i] = timeslots[i][:-1]
         i += 1
         
-    print(timeslots)
+    # print(timeslots)
     
     num_timeslots = len(timeslots)
     time_compatibilities = np.zeros((num_teams, num_timeslots), dtype=bool)
