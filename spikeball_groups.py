@@ -2,9 +2,20 @@ import names
 import random
 import numpy as np
 import time
+from tqdm import tqdm
+from rich.prompt import Prompt
+from rich.pretty import pprint
+import warnings
+warnings.filterwarnings("ignore")
 
-def recursive_scheduler(games, schedule):
-    print(schedule)
+
+
+def recursive_scheduler(games, schedule, bar):
+    #print(f"recursive_scheduler called with \ngames: {games} \nschedule: {schedule}")
+=======
+# def recursive_scheduler(games, schedule):
+#     print(schedule)
+
     games_scheduled = len(schedule)
     # base case
     if len(games) == games_scheduled:
@@ -21,11 +32,11 @@ def recursive_scheduler(games, schedule):
         if i == sum(games[games_scheduled][2]):
             games[games_scheduled - 1][2][schedule[games_scheduled-1]] = False
             schedule.pop(games_scheduled - 1)
-            return recursive_scheduler(games, schedule)
+            return recursive_scheduler(games, schedule, bar)
 
         schedule[games_scheduled] = i
-
-        return recursive_scheduler(games, schedule)
+        bar.update()
+        return recursive_scheduler(games, schedule, bar)
         
         
 
@@ -47,7 +58,8 @@ def schedule_helper(zipped, groups, time_dict):
 
     random.shuffle(games)
 
-    recursive_scheduler(games, schedule)
+    bar = tqdm(total=len(games))
+    recursive_scheduler(games, schedule, bar)
 
     text_schedule = {}
     
@@ -81,7 +93,6 @@ def schedulify(zipped, timeslots, teams_per_group):
     return schedule_helper(zipped, groups, time_dict)
     
 if __name__ == '__main__':
-    
     start_time = time.time()
     with open('teams.txt', 'r') as f:
         teams = f.readlines()
@@ -92,7 +103,11 @@ if __name__ == '__main__':
         teams[i] = teams[i][:-1]
         i += 1
 
-    # print(num_teams, teams)
+
+    #pprint((num_teams, teams))
+=======
+
+
     with open('timeslots.txt', 'r') as f:
         timeslots = f.readlines()
     i = 0
@@ -100,7 +115,11 @@ if __name__ == '__main__':
         timeslots[i] = timeslots[i][:-1]
         i += 1
         
-    # print(timeslots)
+
+    #pprint(timeslots)
+=======
+
+
     
     num_timeslots = len(timeslots)
     time_compatibilities = np.zeros((num_teams, num_timeslots), dtype=bool)
@@ -115,8 +134,8 @@ if __name__ == '__main__':
         i += 1
 
     time_compatibilities = time_compatibilities.tolist()
-        
-    text_schedule = schedulify(list(zip(teams, time_compatibilities)), timeslots, int(input("Number of teams in each group?\n")))
-    print("-----------------\n-----------------")
-    print(text_schedule)
-    print("--- %s seconds ---" % (time.time() - start_time))
+    user_input = int(Prompt.ask("Number of teams in each group?", default="2"))
+    assert(user_input > 0)
+    text_schedule = schedulify(list(zip(teams, time_compatibilities)), timeslots, user_input)
+    pprint(text_schedule)
+    print("Done in %s seconds." % (time.time() - start_time))

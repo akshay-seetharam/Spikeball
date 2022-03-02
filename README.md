@@ -16,6 +16,8 @@ Let me know if you have any problems at this stage.
 
 `git clone https://github.com/akshay-seetharam/Spikeball`⏎
 
+`python3 -m pip install -r requirements.txt`⏎
+
 Permit any confirmation/security messages.
 
 Then:
