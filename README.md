@@ -12,5 +12,13 @@ Permit any confirmation/security messages.
 
 Then:
 
-`cd Spikeball`
-`python3 
+`cd Spikeball`⏎
+
+### Example Case
+`python3 spikeball_groups.py`⏎
+
+If you have any errors, open an issue, email me, or text if you have my number.
+
+### Customized Teams and Timeslots
+
+In a text editor of your choosing, simply open `teams.txt` or `timeslots.txt` and write the timeslots you prefer. Teams/timeslots should be separated by line breaks. If you want to programmatically generate teams/timeslots open one of the two `generator.t(eams|imeslots).py` files. Then run `python3 spikeball_groups.py` ⏎ as normal.
