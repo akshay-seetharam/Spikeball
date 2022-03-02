@@ -83,12 +83,18 @@ def schedulify(zipped, timeslots, teams_per_group):
 if __name__ == '__main__':
     
     start_time = time.time()
-    num_teams = int(input("Number of teams?\n"))
-    teams = [names.get_first_name() + " and " + names.get_first_name() for i in range(num_teams)]
+    with open('teams.txt', 'r') as f:
+        teams = f.readlines()
+    num_teams = len(teams)
 
+    i = 0
+    while i < len(teams):
+        teams[i] = teams[i][:-1]
+        i += 1
+
+    print(num_teams, teams)
     with open('timeslots.txt', 'r') as f:
         timeslots = f.readlines()
-
     i = 0
     while i < len(timeslots):
         timeslots[i] = timeslots[i][:-1]
@@ -111,6 +117,6 @@ if __name__ == '__main__':
     time_compatibilities = time_compatibilities.tolist()
         
     text_schedule = schedulify(list(zip(teams, time_compatibilities)), timeslots, int(input("Number of teams in each group?\n")))
-    print("------------------\n-----------------")
+    print("-----------------\n-----------------")
     print(text_schedule)
     print("--- %s seconds ---" % (time.time() - start_time))
