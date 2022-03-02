@@ -12,7 +12,7 @@ warnings.filterwarnings("ignore")
 
 def recursive_scheduler(games, schedule, bar):
     #print(f"recursive_scheduler called with \ngames: {games} \nschedule: {schedule}")
-=======
+#==#==#===
 # def recursive_scheduler(games, schedule):
 #     print(schedule)
 
@@ -94,6 +94,7 @@ def schedulify(zipped, timeslots, teams_per_group):
     
 if __name__ == '__main__':
     start_time = time.time()
+    pprint("Reading teams, be patient...")
     with open('teams.txt', 'r') as f:
         teams = f.readlines()
     num_teams = len(teams)
@@ -105,9 +106,9 @@ if __name__ == '__main__':
 
 
     #pprint((num_teams, teams))
-=======
+#==#==#===
 
-
+    pprint("Reading timeslots, be patient...")
     with open('timeslots.txt', 'r') as f:
         timeslots = f.readlines()
     i = 0
@@ -117,7 +118,7 @@ if __name__ == '__main__':
         
 
     #pprint(timeslots)
-=======
+#==#==#===
 
 
     

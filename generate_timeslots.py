@@ -1,5 +1,5 @@
 with open('timeslots.txt', 'w') as f:
-	for i in range(50):
+	for i in range(1500):
 		for j in range(3):
 			f.write(f'Day {i+1}, Lunch Slot {j + 1}\n')
 		for j in range(3):
