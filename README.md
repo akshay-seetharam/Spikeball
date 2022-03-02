@@ -35,3 +35,7 @@ If you have any errors, open an issue, email me, or text if you have my number.
 ### Customized Teams and Timeslots
 
 In a text editor of your choosing, simply open `teams.txt` or `timeslots.txt` and write the timeslots you prefer. Teams/timeslots should be separated by line breaks. If you want to programmatically generate teams/timeslots, customize one of the `generator.*.py` files and run it with `python3 generator.*.py`⏎. Then run `python3 spikeball_groups.py` ⏎ as usual.
+
+# Colab
+Note that the Colab version works slightly differently, though the underlying logic is the same.
+https://colab.research.google.com/drive/14SJmi1vpFIDzbXLl4_X3YzuPN2O7_on6#scrollTo=e5be1e6f
