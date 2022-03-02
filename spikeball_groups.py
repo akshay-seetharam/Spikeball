@@ -4,7 +4,7 @@ import numpy as np
 import time
 
 def recursive_scheduler(games, schedule):
-    print(f"recursive_scheduler called with \ngames: {games} \nschedule: {schedule}")
+    print(schedule)
     games_scheduled = len(schedule)
     # base case
     if len(games) == games_scheduled:
