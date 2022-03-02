@@ -16,6 +16,8 @@ Then:
 
 `python3 spikeball_groups.py`⏎
 
+It will prompt you to enter the number of teams per group. By default, there are 80 teams in `teams.txt`, so make sure the number of teams per group is a factor of 80.
+
 If you have any errors, open an issue, email me, or text if you have my number.
 
 ### Customized Teams and Timeslots
