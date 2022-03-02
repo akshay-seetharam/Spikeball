@@ -1,0 +1,4 @@
+rich
+names
+numpy
+tqdm
