@@ -18,6 +18,8 @@ Then:
 
 It will prompt you to enter the number of teams per group. By default, there are 80 teams in `teams.txt`, so make sure the number of teams per group is a factor of 80.
 
+It will print a schedule below two "------------------" lines
+
 If you have any errors, open an issue, email me, or text if you have my number.
 
 ### Customized Teams and Timeslots
