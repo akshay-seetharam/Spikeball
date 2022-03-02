@@ -9,8 +9,13 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
+
 def recursive_scheduler(games, schedule, bar):
     #print(f"recursive_scheduler called with \ngames: {games} \nschedule: {schedule}")
+=======
+# def recursive_scheduler(games, schedule):
+#     print(schedule)
+
     games_scheduled = len(schedule)
     # base case
     if len(games) == games_scheduled:
@@ -98,7 +103,11 @@ if __name__ == '__main__':
         teams[i] = teams[i][:-1]
         i += 1
 
+
     #pprint((num_teams, teams))
+=======
+
+
     with open('timeslots.txt', 'r') as f:
         timeslots = f.readlines()
     i = 0
@@ -106,7 +115,11 @@ if __name__ == '__main__':
         timeslots[i] = timeslots[i][:-1]
         i += 1
         
+
     #pprint(timeslots)
+=======
+
+
     
     num_timeslots = len(timeslots)
     time_compatibilities = np.zeros((num_teams, num_timeslots), dtype=bool)
