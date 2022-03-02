@@ -6,6 +6,7 @@ from tqdm import tqdm
 from rich.prompt import Prompt
 from rich.pretty import pprint
 import warnings
+import sys
 warnings.filterwarnings("ignore")
 
 
@@ -14,7 +15,7 @@ def recursive_scheduler(games, schedule, bar):
     #print(f"recursive_scheduler called with \ngames: {games} \nschedule: {schedule}")
 #==#==#===
 # def recursive_scheduler(games, schedule):
-#     print(schedule)
+#     pprint(schedule)
 
     games_scheduled = len(schedule)
     # base case
@@ -93,6 +94,7 @@ def schedulify(zipped, timeslots, teams_per_group):
     return schedule_helper(zipped, groups, time_dict)
     
 if __name__ == '__main__':
+    # raise(Exception("Do the images for recursion and compile them into a video!!!!"))
     start_time = time.time()
     pprint("Reading teams, be patient...")
     with open('teams.txt', 'r') as f:
@@ -135,8 +137,13 @@ if __name__ == '__main__':
         i += 1
 
     time_compatibilities = time_compatibilities.tolist()
-    user_input = int(Prompt.ask("Number of teams in each group?", default="2"))
+    user_input = int(Prompt.ask("Number of teams in each group?", default="5")) if len(sys.argv) != 2 else int(sys.argv[1])
     assert(user_input > 0)
     text_schedule = schedulify(list(zip(teams, time_compatibilities)), timeslots, user_input)
-    pprint(text_schedule)
-    print("Done in %s seconds." % (time.time() - start_time))
+    
+    final_file = 'schedule.txt'
+    pprint(f'Writing schedule to {final_file}')
+    with open(final_file, 'w+') as f:
+        for i in text_schedule:
+            f.write(f'{i}, {text_schedule[i]}\n') 
+    pprint("Done in %s seconds." % (time.time() - start_time))
