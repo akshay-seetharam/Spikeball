@@ -6,6 +6,12 @@ To run this, first open Terminal (spotlight search).
 
 Run the following code:
 
+
+
+`pip3 install python3`⏎
+
+Let me know if you have any problems at this stage.
+
 `pip3 install names`⏎
 
 `git clone https://github.com/akshay-seetharam/Spikeball`⏎
